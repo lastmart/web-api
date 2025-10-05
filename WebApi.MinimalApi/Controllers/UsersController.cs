@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.MinimalApi.Domain;
 using WebApi.MinimalApi.Models;
@@ -19,7 +21,7 @@ public class UsersController : Controller
         this.mapper = mapper;
     }
 
-    [HttpGet("{userId}")]
+    [HttpGet("{userId}", Name = nameof(GetUserById))]
     [Produces("application/json", "application/xml")]
     public ActionResult<UserDto> GetUserById([FromRoute] Guid userId)
     {
@@ -34,8 +36,35 @@ public class UsersController : Controller
     }
 
     [HttpPost]
-    public IActionResult CreateUser([FromBody] object user)
+    [Produces("application/json", "application/xml")]
+    public IActionResult CreateUser([FromBody] CreateUserDto createUserDto)
     {
-        throw new NotImplementedException();
+        if (createUserDto is null)
+        {
+            return BadRequest();
+        }
+
+        if (TryFindLoginFormatError(createUserDto.Login))
+        {
+            return UnprocessableEntity(ModelState);
+        }
+
+        var createdUserEntity = userRepository.Insert(mapper.Map<UserEntity>(createUserDto));
+
+        return CreatedAtRoute(
+            nameof(GetUserById),
+            new { userId = createdUserEntity.Id },
+            createdUserEntity.Id);
+    }
+
+    private bool TryFindLoginFormatError(string login)
+    {
+        if (string.IsNullOrEmpty(login) || !login.All(char.IsLetterOrDigit))
+        {
+            ModelState.AddModelError("login", "Error");
+            return true;
+        }
+
+        return false;
     }
 }
