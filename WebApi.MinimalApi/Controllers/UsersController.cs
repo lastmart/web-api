@@ -32,6 +32,13 @@ public class UsersController : Controller
         this.linkGenerator = linkGenerator;
     }
 
+    [HttpOptions]
+    public IActionResult Options()
+    {
+        Response.Headers.Add("Allow", "GET, POST, OPTIONS");
+        return Ok();
+    }
+
     [HttpGet("{userId}", Name = nameof(GetUserById))]
     [HttpHead("{userId}")]
     [Produces("application/json", "application/xml")]
