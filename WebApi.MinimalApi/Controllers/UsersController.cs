@@ -114,6 +114,23 @@ public class UsersController : Controller
             : UnprocessableEntity(ModelState);
     }
 
+    [HttpDelete("{userId}")]
+    public IActionResult DeleteUser(string userId)
+    {
+        if (!Guid.TryParse(userId, out var id))
+        {
+            return NotFound();
+        }
+
+        if (userRepository.FindById(id) == null)
+        {
+            return NotFound();
+        }
+
+        userRepository.Delete(id);
+        return NoContent();
+    }
+
     private bool TryFindLoginFormatError(string login, [MaybeNullWhen(false)] out string error)
     {
         if (string.IsNullOrEmpty(login) || !login.All(char.IsLetterOrDigit))
