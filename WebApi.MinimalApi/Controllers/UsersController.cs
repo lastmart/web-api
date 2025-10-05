@@ -51,10 +51,33 @@ public class UsersController : Controller
 
         var createdUserEntity = userRepository.Insert(mapper.Map<UserEntity>(createUserDto));
 
-        return CreatedAtRoute(
-            nameof(GetUserById),
-            new { userId = createdUserEntity.Id },
-            createdUserEntity.Id);
+        return ToCreatedAtRouteResult(createdUserEntity);
+    }
+
+    [HttpPut("{userId}")]
+    [Produces("application/json", "application/xml")]
+    public IActionResult UpdateUser([FromRoute] string userId, [FromBody] UpdateUserDto updateUserDto)
+    {
+        if (updateUserDto is null || !Guid.TryParse(userId, out var id))
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return UnprocessableEntity(ModelState);
+        }
+
+        var userToUpdate = mapper.Map<UserEntity>(updateUserDto);
+
+        if (userRepository.FindById(id) == null)
+        {
+            var createdUserEntity = userRepository.Insert(userToUpdate);
+            return ToCreatedAtRouteResult(createdUserEntity);
+        }
+
+        userRepository.Update(userToUpdate);
+        return NoContent();
     }
 
     private bool TryFindLoginFormatError(string login)
@@ -66,5 +89,13 @@ public class UsersController : Controller
         }
 
         return false;
+    }
+
+    public CreatedAtRouteResult ToCreatedAtRouteResult(UserEntity userEntity)
+    {
+        return CreatedAtRoute(
+            nameof(GetUserById),
+            new { userId = userEntity.Id },
+            userEntity.Id);
     }
 }

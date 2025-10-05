@@ -31,6 +31,7 @@ builder.Services
         {
             cfg.CreateMap<UserEntity, UserDto>().ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
             cfg.CreateMap<CreateUserDto, UserEntity>();
+            cfg.CreateMap<UpdateUserDto, UserEntity>();
         }, Array.Empty<Assembly>());
 var app = builder.Build();
 
