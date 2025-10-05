@@ -22,6 +22,7 @@ public class UsersController : Controller
     }
 
     [HttpGet("{userId}", Name = nameof(GetUserById))]
+    [HttpHead("{userId}")]
     [Produces("application/json", "application/xml")]
     public ActionResult<UserDto> GetUserById([FromRoute] Guid userId)
     {
@@ -30,6 +31,11 @@ public class UsersController : Controller
         if (user == null)
         {
             return NotFound();
+        }
+
+        if (Request.Method == HttpMethod.Head.Method)
+        {
+            Response.Body = Stream.Null;
         }
 
         return Ok(mapper.Map<UserDto>(user));
