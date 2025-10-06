@@ -10,6 +10,7 @@ namespace WebApi.MinimalApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Produces("application/json", "application/xml")]
 public class UsersController : Controller
 {
     private readonly IUserRepository userRepository;
@@ -41,7 +42,6 @@ public class UsersController : Controller
 
     [HttpGet("{userId}", Name = nameof(GetUserById))]
     [HttpHead("{userId}")]
-    [Produces("application/json", "application/xml")]
     public ActionResult<UserDto> GetUserById([FromRoute] Guid userId)
     {
         var user = userRepository.FindById(userId);
@@ -60,7 +60,6 @@ public class UsersController : Controller
     }
 
     [HttpGet]
-    [Produces("application/json", "application/xml")]
     public IActionResult GetUsers([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
         if (pageNumber < 1)
@@ -79,7 +78,6 @@ public class UsersController : Controller
     }
 
     [HttpPost]
-    [Produces("application/json", "application/xml")]
     public IActionResult CreateUser([FromBody] CreateUserDto createUserDto)
     {
         if (createUserDto is null)
@@ -99,7 +97,6 @@ public class UsersController : Controller
     }
 
     [HttpPut("{userId}")]
-    [Produces("application/json", "application/xml")]
     public IActionResult UpdateUser([FromRoute] string userId, [FromBody] UpdateUserDto updateUserDto)
     {
         if (updateUserDto is null || !Guid.TryParse(userId, out var id))
@@ -125,7 +122,6 @@ public class UsersController : Controller
     }
 
     [HttpPatch("{userId}")]
-    [Produces("application/json", "application/xml")]
     public IActionResult PatchUser([FromRoute] string userId, [FromBody] JsonPatchDocument<UpdateUserDto> patchDoc)
     {
         if (patchDoc == null)
