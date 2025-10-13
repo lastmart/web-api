@@ -8,8 +8,11 @@ using WebApi.MinimalApi.Models;
 
 namespace WebApi.MinimalApi.Controllers;
 
-[Route("api/[controller]")]
+/// <summary>
+/// Work with users
+/// </summary>
 [ApiController]
+[Route("api/[controller]")]
 [Produces("application/json", "application/xml")]
 public class UsersController : Controller
 {
@@ -33,15 +36,27 @@ public class UsersController : Controller
         this.linkGenerator = linkGenerator;
     }
 
+    /// <summary>
+    /// Options of users requests
+    /// </summary>
     [HttpOptions]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult Options()
     {
         Response.Headers.Add("Allow", "GET, POST, OPTIONS");
         return Ok();
     }
 
+    /// <summary>
+    /// Get user
+    /// </summary>
+    /// <param name="userId">Id of user</param>
     [HttpGet("{userId}", Name = nameof(GetUserById))]
     [HttpHead("{userId}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserDto))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public ActionResult<UserDto> GetUserById([FromRoute] Guid userId)
     {
         var user = userRepository.FindById(userId);
@@ -59,7 +74,15 @@ public class UsersController : Controller
         return Ok(mapper.Map<UserDto>(user));
     }
 
+    /// <summary>
+    /// Get users
+    /// </summary>
+    /// <param name="pageNumber">Number of page. It should be grater then 1</param>
+    /// <param name="pageSize">Size of page. It should be in the range from 1 to 20</param>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<UserDto>))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public IActionResult GetUsers([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
         if (pageNumber < 1)
@@ -77,7 +100,14 @@ public class UsersController : Controller
         return Ok(users);
     }
 
+    /// <summary>
+    /// Create user
+    /// </summary>
+    /// <param name="createUserDto">User data</param>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public IActionResult CreateUser([FromBody] CreateUserDto createUserDto)
     {
         if (createUserDto is null)
@@ -96,7 +126,15 @@ public class UsersController : Controller
         return ToCreatedAtRouteResult(createdUserEntity);
     }
 
+    /// <summary>
+    /// Update user
+    /// </summary>
+    /// <param name="userId">Id of user</param>
+    /// <param name="updateUserDto">User data</param>
     [HttpPut("{userId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public IActionResult UpdateUser([FromRoute] string userId, [FromBody] UpdateUserDto updateUserDto)
     {
         if (updateUserDto is null || !Guid.TryParse(userId, out var id))
@@ -121,7 +159,16 @@ public class UsersController : Controller
         return NoContent();
     }
 
+    /// <summary>
+    /// Patch user
+    /// </summary>
+    /// <param name="userId">Id of user</param>
+    /// <param name="patchDoc">User data</param>
     [HttpPatch("{userId}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public IActionResult PatchUser([FromRoute] string userId, [FromBody] JsonPatchDocument<UpdateUserDto> patchDoc)
     {
         if (patchDoc == null)
@@ -153,7 +200,15 @@ public class UsersController : Controller
             : UnprocessableEntity(ModelState);
     }
 
+    /// <summary>
+    /// Delete user
+    /// </summary>
+    /// <param name="userId">Id of user</param>
     [HttpDelete("{userId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public IActionResult DeleteUser(string userId)
     {
         if (!Guid.TryParse(userId, out var id))
@@ -205,7 +260,7 @@ public class UsersController : Controller
         return false;
     }
 
-    public CreatedAtRouteResult ToCreatedAtRouteResult(UserEntity userEntity)
+    private CreatedAtRouteResult ToCreatedAtRouteResult(UserEntity userEntity)
     {
         return CreatedAtRoute(
             nameof(GetUserById),

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json.Serialization;
 using WebApi.MinimalApi.Domain;
 using WebApi.MinimalApi.Models;
+using WebApi.MinimalApi.Samples;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://localhost:5000");
@@ -26,6 +27,7 @@ builder.Services.AddControllers(options =>
 
 builder.Services
     .AddSingleton<IUserRepository, InMemoryUserRepository>()
+    .AddSwaggerGeneration()
     .AddAutoMapper(
         cfg =>
         {
@@ -37,5 +39,10 @@ builder.Services
 var app = builder.Build();
 
 app.MapControllers();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwaggerWithUI();
+}
 
 app.Run();

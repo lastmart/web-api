@@ -1,0 +1,1747 @@
+{
+  "Info": {
+    "Title": "Web API",
+    "Version": "0.1",
+    "Extensions": {}
+  },
+  "Servers": [],
+  "Paths": {
+    "/api/Users": {
+      "Operations": {
+        "Options": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Options of users requests",
+          "Parameters": [],
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        },
+        "Get": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Get users",
+          "Parameters": [
+            {
+              "UnresolvedReference": false,
+              "Name": "pageNumber",
+              "In": 0,
+              "Description": "Number of page. It should be grater then 1",
+              "Required": false,
+              "Deprecated": false,
+              "AllowEmptyValue": false,
+              "Explode": false,
+              "AllowReserved": false,
+              "Schema": {
+                "Type": "integer",
+                "Format": "int32",
+                "Default": {
+                  "PrimitiveType": 0,
+                  "AnyType": 0,
+                  "Value": 1
+                },
+                "ReadOnly": false,
+                "WriteOnly": false,
+                "AllOf": [],
+                "OneOf": [],
+                "AnyOf": [],
+                "Required": [],
+                "Properties": {},
+                "AdditionalPropertiesAllowed": true,
+                "Enum": [],
+                "Nullable": false,
+                "Deprecated": false,
+                "Extensions": {},
+                "UnresolvedReference": false
+              },
+              "Examples": {},
+              "Content": {},
+              "Extensions": {}
+            },
+            {
+              "UnresolvedReference": false,
+              "Name": "pageSize",
+              "In": 0,
+              "Description": "Size of page. It should be in the range from 1 to 20",
+              "Required": false,
+              "Deprecated": false,
+              "AllowEmptyValue": false,
+              "Explode": false,
+              "AllowReserved": false,
+              "Schema": {
+                "Type": "integer",
+                "Format": "int32",
+                "Default": {
+                  "PrimitiveType": 0,
+                  "AnyType": 0,
+                  "Value": 10
+                },
+                "ReadOnly": false,
+                "WriteOnly": false,
+                "AllOf": [],
+                "OneOf": [],
+                "AnyOf": [],
+                "Required": [],
+                "Properties": {},
+                "AdditionalPropertiesAllowed": true,
+                "Enum": [],
+                "Nullable": false,
+                "Deprecated": false,
+                "Extensions": {},
+                "UnresolvedReference": false
+              },
+              "Examples": {},
+              "Content": {},
+              "Extensions": {}
+            }
+          ],
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {
+                "application/json": {
+                  "Schema": {
+                    "Type": "array",
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Items": {
+                      "ReadOnly": false,
+                      "WriteOnly": false,
+                      "AllOf": [],
+                      "OneOf": [],
+                      "AnyOf": [],
+                      "Required": [],
+                      "Properties": {},
+                      "AdditionalPropertiesAllowed": true,
+                      "Enum": [],
+                      "Nullable": false,
+                      "Deprecated": false,
+                      "Extensions": {},
+                      "UnresolvedReference": false,
+                      "Reference": {
+                        "Type": 0,
+                        "Id": "UserDto",
+                        "IsExternal": false,
+                        "IsLocal": true,
+                        "ReferenceV3": "#/components/schemas/UserDto",
+                        "ReferenceV2": "#/definitions/UserDto"
+                      }
+                    },
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                },
+                "application/xml": {
+                  "Schema": {
+                    "Type": "array",
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Items": {
+                      "ReadOnly": false,
+                      "WriteOnly": false,
+                      "AllOf": [],
+                      "OneOf": [],
+                      "AnyOf": [],
+                      "Required": [],
+                      "Properties": {},
+                      "AdditionalPropertiesAllowed": true,
+                      "Enum": [],
+                      "Nullable": false,
+                      "Deprecated": false,
+                      "Extensions": {},
+                      "UnresolvedReference": false,
+                      "Reference": {
+                        "Type": 0,
+                        "Id": "UserDto",
+                        "IsExternal": false,
+                        "IsLocal": true,
+                        "ReferenceV3": "#/components/schemas/UserDto",
+                        "ReferenceV2": "#/definitions/UserDto"
+                      }
+                    },
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                }
+              },
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "400": {
+              "Description": "Bad Request",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "500": {
+              "Description": "Server Error",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        },
+        "Post": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Create user",
+          "Parameters": [],
+          "RequestBody": {
+            "UnresolvedReference": false,
+            "Description": "User data",
+            "Required": false,
+            "Content": {
+              "application/json-patch+json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "CreateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/CreateUserDto",
+                    "ReferenceV2": "#/definitions/CreateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "application/json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "CreateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/CreateUserDto",
+                    "ReferenceV2": "#/definitions/CreateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "text/json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "CreateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/CreateUserDto",
+                    "ReferenceV2": "#/definitions/CreateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "application/*+json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "CreateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/CreateUserDto",
+                    "ReferenceV2": "#/definitions/CreateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              }
+            },
+            "Extensions": {}
+          },
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {
+                "application/json": {
+                  "Schema": {
+                    "Type": "string",
+                    "Format": "uuid",
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                },
+                "application/xml": {
+                  "Schema": {
+                    "Type": "string",
+                    "Format": "uuid",
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                }
+              },
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "400": {
+              "Description": "Bad Request",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "500": {
+              "Description": "Server Error",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        }
+      },
+      "Servers": [],
+      "Parameters": [],
+      "Extensions": {}
+    },
+    "/api/Users/{userId}": {
+      "Operations": {
+        "Get": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Get user",
+          "OperationId": "GetUserById",
+          "Parameters": [
+            {
+              "UnresolvedReference": false,
+              "Name": "userId",
+              "In": 2,
+              "Description": "Id of user",
+              "Required": true,
+              "Deprecated": false,
+              "AllowEmptyValue": false,
+              "Explode": false,
+              "AllowReserved": false,
+              "Schema": {
+                "Type": "string",
+                "Format": "uuid",
+                "ReadOnly": false,
+                "WriteOnly": false,
+                "AllOf": [],
+                "OneOf": [],
+                "AnyOf": [],
+                "Required": [],
+                "Properties": {},
+                "AdditionalPropertiesAllowed": true,
+                "Enum": [],
+                "Nullable": false,
+                "Deprecated": false,
+                "Extensions": {},
+                "UnresolvedReference": false
+              },
+              "Examples": {},
+              "Content": {},
+              "Extensions": {}
+            }
+          ],
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {
+                "application/json": {
+                  "Schema": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "UserDto",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/UserDto",
+                      "ReferenceV2": "#/definitions/UserDto"
+                    }
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                },
+                "application/xml": {
+                  "Schema": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "UserDto",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/UserDto",
+                      "ReferenceV2": "#/definitions/UserDto"
+                    }
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                }
+              },
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "400": {
+              "Description": "Bad Request",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "404": {
+              "Description": "Not Found",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "500": {
+              "Description": "Server Error",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        },
+        "Head": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Get user",
+          "Parameters": [
+            {
+              "UnresolvedReference": false,
+              "Name": "userId",
+              "In": 2,
+              "Description": "Id of user",
+              "Required": true,
+              "Deprecated": false,
+              "AllowEmptyValue": false,
+              "Explode": false,
+              "AllowReserved": false,
+              "Schema": {
+                "Type": "string",
+                "Format": "uuid",
+                "ReadOnly": false,
+                "WriteOnly": false,
+                "AllOf": [],
+                "OneOf": [],
+                "AnyOf": [],
+                "Required": [],
+                "Properties": {},
+                "AdditionalPropertiesAllowed": true,
+                "Enum": [],
+                "Nullable": false,
+                "Deprecated": false,
+                "Extensions": {},
+                "UnresolvedReference": false
+              },
+              "Examples": {},
+              "Content": {},
+              "Extensions": {}
+            }
+          ],
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {
+                "application/json": {
+                  "Schema": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "UserDto",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/UserDto",
+                      "ReferenceV2": "#/definitions/UserDto"
+                    }
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                },
+                "application/xml": {
+                  "Schema": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "UserDto",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/UserDto",
+                      "ReferenceV2": "#/definitions/UserDto"
+                    }
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                }
+              },
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "400": {
+              "Description": "Bad Request",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "404": {
+              "Description": "Not Found",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "500": {
+              "Description": "Server Error",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        },
+        "Put": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Update user",
+          "Parameters": [
+            {
+              "UnresolvedReference": false,
+              "Name": "userId",
+              "In": 2,
+              "Description": "Id of user",
+              "Required": true,
+              "Deprecated": false,
+              "AllowEmptyValue": false,
+              "Explode": false,
+              "AllowReserved": false,
+              "Schema": {
+                "Type": "string",
+                "ReadOnly": false,
+                "WriteOnly": false,
+                "AllOf": [],
+                "OneOf": [],
+                "AnyOf": [],
+                "Required": [],
+                "Properties": {},
+                "AdditionalPropertiesAllowed": true,
+                "Enum": [],
+                "Nullable": false,
+                "Deprecated": false,
+                "Extensions": {},
+                "UnresolvedReference": false
+              },
+              "Examples": {},
+              "Content": {},
+              "Extensions": {}
+            }
+          ],
+          "RequestBody": {
+            "UnresolvedReference": false,
+            "Description": "User data",
+            "Required": false,
+            "Content": {
+              "application/json-patch+json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "UpdateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/UpdateUserDto",
+                    "ReferenceV2": "#/definitions/UpdateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "application/json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "UpdateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/UpdateUserDto",
+                    "ReferenceV2": "#/definitions/UpdateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "text/json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "UpdateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/UpdateUserDto",
+                    "ReferenceV2": "#/definitions/UpdateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "application/*+json": {
+                "Schema": {
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false,
+                  "Reference": {
+                    "Type": 0,
+                    "Id": "UpdateUserDto",
+                    "IsExternal": false,
+                    "IsLocal": true,
+                    "ReferenceV3": "#/components/schemas/UpdateUserDto",
+                    "ReferenceV2": "#/definitions/UpdateUserDto"
+                  }
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              }
+            },
+            "Extensions": {}
+          },
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "400": {
+              "Description": "Bad Request",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "500": {
+              "Description": "Server Error",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        },
+        "Patch": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Patch user",
+          "Parameters": [
+            {
+              "UnresolvedReference": false,
+              "Name": "userId",
+              "In": 2,
+              "Description": "Id of user",
+              "Required": true,
+              "Deprecated": false,
+              "AllowEmptyValue": false,
+              "Explode": false,
+              "AllowReserved": false,
+              "Schema": {
+                "Type": "string",
+                "ReadOnly": false,
+                "WriteOnly": false,
+                "AllOf": [],
+                "OneOf": [],
+                "AnyOf": [],
+                "Required": [],
+                "Properties": {},
+                "AdditionalPropertiesAllowed": true,
+                "Enum": [],
+                "Nullable": false,
+                "Deprecated": false,
+                "Extensions": {},
+                "UnresolvedReference": false
+              },
+              "Examples": {},
+              "Content": {},
+              "Extensions": {}
+            }
+          ],
+          "RequestBody": {
+            "UnresolvedReference": false,
+            "Description": "User data",
+            "Required": false,
+            "Content": {
+              "application/json-patch+json": {
+                "Schema": {
+                  "Type": "array",
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Items": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "Operation",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/Operation",
+                      "ReferenceV2": "#/definitions/Operation"
+                    }
+                  },
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "application/json": {
+                "Schema": {
+                  "Type": "array",
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Items": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "Operation",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/Operation",
+                      "ReferenceV2": "#/definitions/Operation"
+                    }
+                  },
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "text/json": {
+                "Schema": {
+                  "Type": "array",
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Items": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "Operation",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/Operation",
+                      "ReferenceV2": "#/definitions/Operation"
+                    }
+                  },
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              },
+              "application/*+json": {
+                "Schema": {
+                  "Type": "array",
+                  "ReadOnly": false,
+                  "WriteOnly": false,
+                  "AllOf": [],
+                  "OneOf": [],
+                  "AnyOf": [],
+                  "Required": [],
+                  "Items": {
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false,
+                    "Reference": {
+                      "Type": 0,
+                      "Id": "Operation",
+                      "IsExternal": false,
+                      "IsLocal": true,
+                      "ReferenceV3": "#/components/schemas/Operation",
+                      "ReferenceV2": "#/definitions/Operation"
+                    }
+                  },
+                  "Properties": {},
+                  "AdditionalPropertiesAllowed": true,
+                  "Enum": [],
+                  "Nullable": false,
+                  "Deprecated": false,
+                  "Extensions": {},
+                  "UnresolvedReference": false
+                },
+                "Examples": {},
+                "Encoding": {},
+                "Extensions": {}
+              }
+            },
+            "Extensions": {}
+          },
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {
+                "application/json": {
+                  "Schema": {
+                    "Type": "string",
+                    "Format": "uuid",
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                },
+                "application/xml": {
+                  "Schema": {
+                    "Type": "string",
+                    "Format": "uuid",
+                    "ReadOnly": false,
+                    "WriteOnly": false,
+                    "AllOf": [],
+                    "OneOf": [],
+                    "AnyOf": [],
+                    "Required": [],
+                    "Properties": {},
+                    "AdditionalPropertiesAllowed": true,
+                    "Enum": [],
+                    "Nullable": false,
+                    "Deprecated": false,
+                    "Extensions": {},
+                    "UnresolvedReference": false
+                  },
+                  "Examples": {},
+                  "Encoding": {},
+                  "Extensions": {}
+                }
+              },
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "400": {
+              "Description": "Bad Request",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "404": {
+              "Description": "Not Found",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "500": {
+              "Description": "Server Error",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        },
+        "Delete": {
+          "Tags": [
+            {
+              "Name": "Users",
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          ],
+          "Summary": "Delete user",
+          "Parameters": [
+            {
+              "UnresolvedReference": false,
+              "Name": "userId",
+              "In": 2,
+              "Description": "Id of user",
+              "Required": true,
+              "Deprecated": false,
+              "AllowEmptyValue": false,
+              "Explode": false,
+              "AllowReserved": false,
+              "Schema": {
+                "Type": "string",
+                "ReadOnly": false,
+                "WriteOnly": false,
+                "AllOf": [],
+                "OneOf": [],
+                "AnyOf": [],
+                "Required": [],
+                "Properties": {},
+                "AdditionalPropertiesAllowed": true,
+                "Enum": [],
+                "Nullable": false,
+                "Deprecated": false,
+                "Extensions": {},
+                "UnresolvedReference": false
+              },
+              "Examples": {},
+              "Content": {},
+              "Extensions": {}
+            }
+          ],
+          "Responses": {
+            "200": {
+              "Description": "Success",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "400": {
+              "Description": "Bad Request",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "404": {
+              "Description": "Not Found",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            },
+            "500": {
+              "Description": "Server Error",
+              "Headers": {},
+              "Content": {},
+              "Links": {},
+              "Extensions": {},
+              "UnresolvedReference": false
+            }
+          },
+          "Callbacks": {},
+          "Deprecated": false,
+          "Security": [],
+          "Servers": [],
+          "Extensions": {}
+        }
+      },
+      "Servers": [],
+      "Parameters": [],
+      "Extensions": {}
+    }
+  },
+  "Components": {
+    "Schemas": {
+      "CreateUserDto": {
+        "Type": "object",
+        "ReadOnly": false,
+        "WriteOnly": false,
+        "AllOf": [],
+        "OneOf": [],
+        "AnyOf": [],
+        "Required": [
+          "login"
+        ],
+        "Properties": {
+          "login": {
+            "Type": "string",
+            "MinLength": 1,
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": false,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "firstName": {
+            "Type": "string",
+            "Default": {
+              "PrimitiveType": 4,
+              "AnyType": 0,
+              "Value": "John"
+            },
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "lastName": {
+            "Type": "string",
+            "Default": {
+              "PrimitiveType": 4,
+              "AnyType": 0,
+              "Value": "Doe"
+            },
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          }
+        },
+        "AdditionalPropertiesAllowed": false,
+        "Enum": [],
+        "Nullable": false,
+        "Deprecated": false,
+        "Extensions": {},
+        "UnresolvedReference": false
+      },
+      "Operation": {
+        "Type": "object",
+        "ReadOnly": false,
+        "WriteOnly": false,
+        "AllOf": [],
+        "OneOf": [],
+        "AnyOf": [],
+        "Required": [],
+        "Properties": {
+          "operationType": {
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": false,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false,
+            "Reference": {
+              "Type": 0,
+              "Id": "OperationType",
+              "IsExternal": false,
+              "IsLocal": true,
+              "ReferenceV3": "#/components/schemas/OperationType",
+              "ReferenceV2": "#/definitions/OperationType"
+            }
+          },
+          "path": {
+            "Type": "string",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "op": {
+            "Type": "string",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "from": {
+            "Type": "string",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "value": {
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          }
+        },
+        "AdditionalPropertiesAllowed": false,
+        "Enum": [],
+        "Nullable": false,
+        "Deprecated": false,
+        "Extensions": {},
+        "UnresolvedReference": false
+      },
+      "OperationType": {
+        "Type": "integer",
+        "Format": "int32",
+        "ReadOnly": false,
+        "WriteOnly": false,
+        "AllOf": [],
+        "OneOf": [],
+        "AnyOf": [],
+        "Required": [],
+        "Properties": {},
+        "AdditionalPropertiesAllowed": true,
+        "Enum": [
+          {
+            "PrimitiveType": 0,
+            "AnyType": 0,
+            "Value": 0
+          },
+          {
+            "PrimitiveType": 0,
+            "AnyType": 0,
+            "Value": 1
+          },
+          {
+            "PrimitiveType": 0,
+            "AnyType": 0,
+            "Value": 2
+          },
+          {
+            "PrimitiveType": 0,
+            "AnyType": 0,
+            "Value": 3
+          },
+          {
+            "PrimitiveType": 0,
+            "AnyType": 0,
+            "Value": 4
+          },
+          {
+            "PrimitiveType": 0,
+            "AnyType": 0,
+            "Value": 5
+          },
+          {
+            "PrimitiveType": 0,
+            "AnyType": 0,
+            "Value": 6
+          }
+        ],
+        "Nullable": false,
+        "Deprecated": false,
+        "Extensions": {},
+        "UnresolvedReference": false
+      },
+      "UpdateUserDto": {
+        "Type": "object",
+        "ReadOnly": false,
+        "WriteOnly": false,
+        "AllOf": [],
+        "OneOf": [],
+        "AnyOf": [],
+        "Required": [
+          "firstName",
+          "lastName",
+          "login"
+        ],
+        "Properties": {
+          "login": {
+            "Type": "string",
+            "MinLength": 1,
+            "Pattern": "^[0-9\\p{L}]*$",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": false,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "firstName": {
+            "Type": "string",
+            "MinLength": 1,
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": false,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "lastName": {
+            "Type": "string",
+            "MinLength": 1,
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": false,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          }
+        },
+        "AdditionalPropertiesAllowed": false,
+        "Enum": [],
+        "Nullable": false,
+        "Deprecated": false,
+        "Extensions": {},
+        "UnresolvedReference": false
+      },
+      "UserDto": {
+        "Type": "object",
+        "ReadOnly": false,
+        "WriteOnly": false,
+        "AllOf": [],
+        "OneOf": [],
+        "AnyOf": [],
+        "Required": [],
+        "Properties": {
+          "id": {
+            "Type": "string",
+            "Format": "uuid",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": false,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "login": {
+            "Type": "string",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "fullName": {
+            "Type": "string",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "gamesPlayed": {
+            "Type": "integer",
+            "Format": "int32",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": false,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          },
+          "currentGameId": {
+            "Type": "string",
+            "Format": "uuid",
+            "ReadOnly": false,
+            "WriteOnly": false,
+            "AllOf": [],
+            "OneOf": [],
+            "AnyOf": [],
+            "Required": [],
+            "Properties": {},
+            "AdditionalPropertiesAllowed": true,
+            "Enum": [],
+            "Nullable": true,
+            "Deprecated": false,
+            "Extensions": {},
+            "UnresolvedReference": false
+          }
+        },
+        "AdditionalPropertiesAllowed": false,
+        "Enum": [],
+        "Nullable": false,
+        "Deprecated": false,
+        "Extensions": {},
+        "UnresolvedReference": false
+      }
+    },
+    "Responses": {},
+    "Parameters": {},
+    "Examples": {},
+    "RequestBodies": {},
+    "Headers": {},
+    "SecuritySchemes": {},
+    "Links": {},
+    "Callbacks": {},
+    "Extensions": {}
+  },
+  "SecurityRequirements": [],
+  "Tags": [],
+  "Extensions": {}
+}
